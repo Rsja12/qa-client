@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-export class Questions extends Component {
+export class QuestionsIndex extends Component {
 
     state = {
         questions: null
@@ -16,7 +16,7 @@ export class Questions extends Component {
     }
 
     renderCards() {
-        if( this.state.questions === null ) return <div>Loading...</div>
+        if( !this.state.questions ) return <div>Loading...</div>
 
         return this.state.questions.map( question => (
 
@@ -49,4 +49,4 @@ export class Questions extends Component {
 
 }
 
-export default Questions
+export default QuestionsIndex

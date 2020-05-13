@@ -1,13 +1,13 @@
 import React from 'react'
 
 import NavBar from './NavBar'
-import Questions from './Questions/Questions'
+import QuestionsIndex from './Questions/QuestionsIndex'
 
 const App = () => {
     return (
         <div>
             <NavBar />
-            <Questions />
+            <QuestionsIndex />
         </div>
     )
 }
