@@ -18,8 +18,9 @@ export class QuestionShow extends Component {
 
     renderAnswers() {
         const { question } = this.state
-        return question.answers.map( answer => (
-            <p className='lead' key={answer.answer}></p>
+        console.log(question)
+        return question.answers.map( (ans, idx) => (
+            <p className='lead' key={idx}>{ ans.answer }</p>
         ) )
     }
 
@@ -41,11 +42,9 @@ export class QuestionShow extends Component {
     }
 
     render() {
-        console.log(this.props)
         const { question } = this.state
         if ( !question ) return <div>Loading...</div>
 
-        console.log(question)
         return (
             <div>
                 { this.renderQuestion() }
