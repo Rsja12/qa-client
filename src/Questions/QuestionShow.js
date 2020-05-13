@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import SubmitAnswer from './SubmitAnswer'
+import auth0Client from '../authentication/Auth'
+
 export class QuestionShow extends Component {
 
     state = {
@@ -8,12 +11,27 @@ export class QuestionShow extends Component {
     }
 
     async componentDidMount() {
+        await this.refreshQuestion()
+        console.log(this.state)
+    }
+
+    async refreshQuestion() {
         const { params } = this.props.match
         const question = ( await axios.get(`http://localhost:8081/${params.id}`) ).data
 
         this.setState({
             question
         })
+    }
+
+    submitAnswer = async answer => {
+        await axios.post(`http://localhost:8081/answer/${this.state.question.id}`, {
+            answer
+        }, {
+            headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
+        })
+
+        await this.refreshQuestion()
     }
 
     renderAnswers() {
@@ -33,6 +51,7 @@ export class QuestionShow extends Component {
                         <h1 className='display-3'>{ question.title }</h1>
                         <p className='lead'>{ question.description }</p>
                         <hr className='my-4' />
+                        <SubmitAnswer questionId={question.id} submitAnswer={ this.submitAnswer } />
                         <p>Answers:</p>
                         { this.renderAnswers() }
                     </div>
