@@ -5,6 +5,8 @@ import NavBar from './NavBar'
 import QuestionsIndex from './questions/QuestionsIndex'
 import QuestionShow from './questions/QuestionShow'
 import { Callback } from './Callback'
+import SecuredRoute from './private-routes/SecuredRoute'
+import { QuestionCreate } from './questions/QuestionCreate'
 
 const App = () => {
     return (
@@ -13,6 +15,7 @@ const App = () => {
             <Route exact path='/' component={QuestionsIndex} />
             <Route exact path='/question/:id' component={QuestionShow} />
             <Route exact path='/callback' component={Callback} />
+            <SecuredRoute path='/questions/new' component={QuestionCreate} />
         </div>
     )
 }

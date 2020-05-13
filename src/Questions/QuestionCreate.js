@@ -53,7 +53,7 @@ export class QuestionCreate extends Component {
                                     <input 
                                         disabled={this.state.disabled}
                                         type='text'
-                                        onBlur={ this.updateTitle() }
+                                        onBlur={ this.updateTitle }
                                         className='form-control'
                                         placeholder="Give your question a title"
                                     />
@@ -62,7 +62,7 @@ export class QuestionCreate extends Component {
                                     <input 
                                         disabled={this.state.disabled}
                                         type='text'
-                                        onBlur={ this.updateDescription() }
+                                        onBlur={ this.updateDescription }
                                         className='form-control'
                                         placeholder="Give more context to your question"
                                     />
@@ -70,7 +70,7 @@ export class QuestionCreate extends Component {
                                     <button 
                                         disabled={this.state.disabled}
                                         className='btn btn-primary'
-                                        onClick={ this.submit() } >
+                                        onClick={ this.submit } >
                                             Submit
                                     </button>
                                 </div>
