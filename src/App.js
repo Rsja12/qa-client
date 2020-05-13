@@ -2,8 +2,8 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 
 import NavBar from './NavBar'
-import QuestionsIndex from './Questions/QuestionsIndex'
-import QuestionShow from './Questions/QuestionShow'
+import QuestionsIndex from './questions/QuestionsIndex'
+import QuestionShow from './questions/QuestionShow'
 
 const App = () => {
     return (
