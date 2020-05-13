@@ -24,23 +24,22 @@ export class QuestionCreate extends Component {
     }
 
     async submit() {
-
         this.setState({
-            disabled: true
-        })
-
+          disabled: true,
+        });
+    
         await axios.post('http://localhost:8081', {
-            title: this.state.title,
-            description: this.state.description
+          title: this.state.title,
+          description: this.state.description,
         }, {
-            headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
-        })
-
-        this.props.history.push('/')
-
+          headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
+        });
+    
+        this.props.history.push('/');
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className='container'>
                 <div className='row'>
@@ -70,7 +69,7 @@ export class QuestionCreate extends Component {
                                     <button 
                                         disabled={this.state.disabled}
                                         className='btn btn-primary'
-                                        onClick={ this.submit } >
+                                        onClick={() => {this.submit()}}>
                                             Submit
                                     </button>
                                 </div>
